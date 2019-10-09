@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>rock paper scissors</title>
+    </head>
+    <body>
+        <script>
+            function computerPlay()
+            {
+                let number = Math.random();
+                if(number <= (1 / 3))
+                {
+                    return "rock";
+                }
+                else if(number <= (2 / 3) && number > (1 / 3))
+                {
+                    return "paper";
+                }
+                else
+                {
+                    return "scissors";
+                }
+                
+            }
+            function playRound(playerSelection, computerSelection)
+            {
+                playerSelection = playerSelection.toLowerCase()
+                computerSelection = computerSelection.toLowerCase()
+                switch(playerSelection) 
+                {
+                    case "rock":
+                        if(computerSelection == "rock")
+                        {
+                            return "It's a tie! Both choices were rock!";
+                        }
+                        else if(computerSelection == "paper")
+                        {
+                            return "You lose! Computer chose paper!"
+                        }
+                        else if(computerSelection == "scissors")
+                        {
+                            return "You win! Computer chose scissors!"
+                        }
+                        break;
+                    case "paper":
+                        if(computerSelection == "rock")
+                        {
+                            return "You win! Computer chose rock!";
+                        }
+                        else if(computerSelection == "paper")
+                        {
+                            return "It's a tie! Both choices were paper!"
+                        }
+                        else if(computerSelection == "scissors")
+                        {
+                            return "You lose! Computer chose scissors!"
+                        }
+                        break;
+                    case "scissors": 
+                        if(computerSelection == "rock")
+                        {
+                            return "You lose! Computer chose rock!";
+                        }
+                        else if(computerSelection == "paper")
+                        {
+                            return "You win! Computer chose paper!"
+                        }
+                        else if(computerSelection == "scissors")
+                        {
+                            return "It's a tie! Both chose scissors!"
+                        }
+                        break;
+                }
+            }
+            function game()
+                {
+                    let playerScore = 0;
+                    let computerScore = 0;
+                    let active = true;
+                    while(active)
+                    {
+                        let playerInput = prompt("Rock, Paper, or Scissors?")
+                        let computerInput = computerPlay()
+                        let result = playRound(playerInput, computerInput)
+                        let resultIndex = result.indexOf("!")
+                        let resultScore = result.slice(0 , resultIndex)
+                        if(resultScore == "You win")
+                        {
+                            playerScore++
+                            alert(result + "\nPlayer score: " + playerScore + " " + "Computer score: " + computerScore)
+                        }
+                        else if(resultScore == "You lose")
+                        {
+                            computerScore++
+                            alert(result + "\nPlayer score: " + playerScore + " " + "Computer score: " + computerScore)
+                        }
+                        else if(resultScore == "It's a tie")
+                        {
+                            alert(result + "\nPlayer score: " + playerScore + " " + "Computer score: " + computerScore)
+                        }
+                        
+                        if(playerScore == 5 || computerScore == 5)
+                        {
+                            active = false
+                        }
+                        
+                    }
+                    if(playerScore == 5)
+                        {
+                            alert("Congrats, you beat a computer at rock paper scissors!")
+                            return "Congrats, you beat a computer at rock paper scissors!"
+                        }
+                    if(computerScore == 5)
+                        {
+                            alert("You lost to a computer, noob")
+                            return "You lost to a computer, noob"
+                        }
+                    }
+                
+            
+            console.log(game())
+            
+        </script>
+    </body>
+ </html>
