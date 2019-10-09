@@ -70,6 +70,10 @@
                             return "It's a tie! Both chose scissors!"
                         }
                         break;
+                    default: 
+                        {
+                            return "Please input Rock, Paper, or Scissors!"
+                        }
 
 
                 }
@@ -100,7 +104,10 @@
                         {
                             alert(result + "\nPlayer score: " + playerScore + " " + "Computer score: " + computerScore)
                         }
-                        
+                        else
+                        {
+                            alert(result)
+                        }
                         if(playerScore == 5 || computerScore == 5)
                         {
                             active = false
